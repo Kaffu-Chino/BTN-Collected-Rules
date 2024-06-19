@@ -40,7 +40,7 @@ jobs:
           endpoint: "oss-cn-shanghai.aliyuncs.com"
           access-key-id: ${{secrets.OSS_ACCESS_KEY}}
           access-key-secret: ${{secrets.OSS_ACCESS_KEY_SECRET}}
-      - run: ossutil cp -r -u . oss://chino-public/BTN-Collected-Rules/ --include "*.txt"
+      - run: ossutil cp -r -u . oss://chino-public/BTN-Collected-Rules/ --include "*.txt" --only-current-dir
 
       # Step 4: Print a helpful timestamp for your records (not required, just nice)
       - name: Timestamp
