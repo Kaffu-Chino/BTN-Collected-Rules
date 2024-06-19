@@ -35,10 +35,17 @@ jobs:
 
       # Step 3: run push to aliyun ossutil action push files to Aliyun oss
       - name: Push To Aliyun OSS
-        uses: manyuanrong/setup-ossutil@v2.0
+        uses: yizhoumo/setup-ossutil@v2.0.0
         with:
+          # The version to download and use, or 'latest' for the latest version.
+          ossutil-version: 'latest'
+          
+          # The following parameters are (optionally) used to config the credential.
+          # The endpoint of the region in which the bucket is located.
           endpoint: "oss-cn-shanghai.aliyuncs.com"
+          # The AccessKey ID of the credential.
           access-key-id: ${{secrets.OSS_ACCESS_KEY}}
+          # The AccessKey Secret of the credential.
           access-key-secret: ${{secrets.OSS_ACCESS_KEY_SECRET}}
       - run: ossutil cp --only-current-dir -r -u ./ oss://chino-public/BTN-Collected-Rules/ --include "*.txt"
 
