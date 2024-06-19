@@ -28,7 +28,7 @@ jobs:
 
       # Step 1: run sync action
       - name: Fork Sync
-        uses: tgymnich/fork-sync@v1.8
+        uses: tgymnich/fork-sync@v2.0.10
         with:
          base: main
          head: main
