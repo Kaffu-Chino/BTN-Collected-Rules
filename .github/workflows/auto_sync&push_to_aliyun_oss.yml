@@ -48,8 +48,8 @@ jobs:
           # The AccessKey Secret of the credential.
           access-key-secret: ${{secrets.OSS_ACCESS_KEY_SECRET}}
       - run: ossutil cp --only-current-dir -r -u ./ oss://chino-public/BTN-Collected-Rules/ --include "*.txt"
+      - run: ossutil cp --only-current-dir -r -u ./combine/ oss://chino-public/BTN-Collected-Rules/ --include "*.txt"
 
       # Step 4: Print a helpful timestamp for your records (not required, just nice)
       - name: Timestamp
         run: date
-        
