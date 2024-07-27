@@ -14,6 +14,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+
     - name: Create combine directory
       run: mkdir -p combine
 
@@ -21,7 +22,16 @@ jobs:
       run: |
         # Combine all .txt files except combine/alltmp.txt to avoid recursion
         find . -name "*.txt" ! -path "./combine/alltmp.txt" -exec cat {} + > combine/alltmp.txt
-        awk '!seen[$0]++' combine/alltmp.txt > combine/all.txt
+        sort -u  combine/alltmp.txt -o combine/all.txt
+        # awk '!seen[$0]++' combine/alltmp.txt > combine/all.txt
+
+    - uses: actions/setup-java@v4
+      with:
+        distribution: "temurin"
+        java-version: "21"
+
+    - name: Cleanup Rules and Merge ips to CIDR
+      run: java -cp ./tools/RuleCleaner.jar Main ./combine/all.txt
 
     - name: Commit and push changes
       run: |
