@@ -2,11 +2,18 @@
 
 由 BTN 网络统计分析得出的可被安全的加入系统防火墙屏蔽的 IP 地址列表。
 
-
 ## 如何使用
 
 你可以直接在 PeerBanHelper 规则订阅页面选择性订阅这些规则（或者干脆直接订阅 combine/all.txt 大合集）。  
 当然，你也可以配合路由器/网关 ACL 或防火墙规则，直接在网关处掐断这些 IP 的连接。
+
+## 订阅链接
+
+以下链接默认均为 `combine/all.txt` 的链接，如果您需要分开订阅，请自行修改。
+
+* [Github Raw (推荐，可能需要科学)](https://raw.githubusercontent.com/PBH-BTN/BTN-Collected-Rules/main/combine/all.txt)
+* [CloudFlare Pages (和上面保持同步更新)](https://bcr.pbh-btn.ghorg.ghostchu-services.top/combine/all.txt)
+* [jsdelivr (部分地区可能有污染)](https://fastly.jsdelivr.net/gh/PBH-BTN/BTN-Collected-Rules@master/combine/all.txt)
 
 ## 鸣谢
 
@@ -27,7 +34,13 @@
 * `123pan.txt` 包含被观测到使用 `offline-download (devel) (anacrolix/torrent unknown)` 的 IP 地址，此 UA 由 123 云盘使用
 * `gitlab.i.ljyun.cn-hangzhou-monitoring.txt` 包含被观测到使用 `gitlab.i.ljyun.cn/hangzhou/monitoring (devel) (anacrolix/torrent v1.55.0)` 的 IP 地址，此特征 Peers 使用较为固定的 IP 段刷流
 * `progress-rewind.txt` 包含了被观测到为进度重置/回退的 IP 地址，这通常意味着恶意刷流（该 IP 集的内容不会增量，而是每次替换）
+* `random-peerid.txt` 包含了全随机 PeerID IP 地址列表，这是对 BT 网络的破坏，绝对恶意的行为
 * `multi-dial.txt` 包含被观测到/用户报告的多拨下载的 IP 地址，这些 IP 段下批量部署大量客户端并进行吸血活动
   * ![multi-dial-1](./assets/101.69.63.0-64-p1.png)
   * ![multi-dial-2](./assets/101.69.63.0-64-p2.png)
   * ![multi-dial-3](./assets/101.69.63.0-64-p3.png)
+
+---
+
+[[Github 仓库]](https://github.com/PBH-BTN/BTN-Collected-Rules)  
+Powered by CloudFlare Pages
